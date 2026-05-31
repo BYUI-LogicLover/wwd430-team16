@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { auth, signOut } from "@/auth";
 
 const NAV_LINKS = [
   { href: "/shop", label: "Shop" },
@@ -7,7 +8,9 @@ const NAV_LINKS = [
   { href: "/contact", label: "Contact" },
 ];
 
-export default function Header() {
+export default async function Header() {
+  const session = await auth();
+
   return (
     <header className="border-b border-white/10 bg-[#343434] text-[#f8f8f8]">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
@@ -26,9 +29,27 @@ export default function Header() {
           ))}
         </nav>
         <div className="flex items-center gap-4 text-sm">
-          <Link href="/login" className="hover:text-[#28582e]">
-            Sign in
-          </Link>
+          {session?.user ? (
+            <>
+              <Link href="/account" className="hover:text-[#28582e]">
+                {session.user.name ?? "Account"}
+              </Link>
+              <form
+                action={async () => {
+                  "use server";
+                  await signOut({ redirectTo: "/" });
+                }}
+              >
+                <button type="submit" className="hover:text-[#28582e]">
+                  Sign out
+                </button>
+              </form>
+            </>
+          ) : (
+            <Link href="/login" className="hover:text-[#28582e]">
+              Sign in
+            </Link>
+          )}
           <Link
             href="/cart"
             className="rounded-md bg-[#28582e] px-3 py-1.5 font-medium hover:opacity-90"
