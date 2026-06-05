@@ -1,3 +1,5 @@
+import ProductReviews from "@/app/_components/ProductReviews";
+
 export default async function ProductPage(props: PageProps<"/products/[slug]">) {
   const { slug } = await props.params;
 
@@ -24,6 +26,7 @@ export default async function ProductPage(props: PageProps<"/products/[slug]">) 
           </button>
         </div>
       </div>
+      <ProductReviews />
     </div>
   );
 }
