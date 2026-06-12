@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e63a935-2db4-453e-8a26-0a6467626c12" name="Changes" comment="Add next-auth dependency for GitHub authentication" />
+    <list default="true" id="1e63a935-2db4-453e-8a26-0a6467626c12" name="Changes" comment="Add validation for form fields and implement checkout and contact forms" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,13 +34,13 @@
     </persistenceIdMap>
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="23" />
+    <option name="cachedIndexableFilesCount" value="93" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="davi-product-updates" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -55,7 +55,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/BYUI-LogicLover/wwd430-team16.git&quot;,
-    &quot;accountId&quot;: &quot;ba57cc6a-241b-4401-95f3-823c3ec7a99d&quot;
+    &quot;accountId&quot;: &quot;d30dc78d-947d-4c5d-b642-2ebfa5684988&quot;
   }
 }</component>
   <component name="McpProjectServerCommands">
@@ -64,61 +64,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.3106319691512827" />
-      <entry key="MS500" value="2.0564788471590956" />
-      <entry key="S2" value="3.5904470975032696" />
-      <entry key="S5" value="4.736073355213875" />
-      <entry key="S10" value="5.302066083216832" />
-      <entry key="S30" value="5.7507924883700765" />
-      <entry key="S60" value="5.873582164958569" />
-      <entry key="M2" value="6.0147658982154155" />
-      <entry key="M5" value="7.88346497411315" />
-      <entry key="M10" value="11.543837972563765" />
-      <entry key="M15" value="14.083173888890006" />
-      <entry key="M30" value="18.75944609136154" />
-      <entry key="H1" value="23.512245359926812" />
-      <entry key="H2" value="27.368009543961115" />
-      <entry key="H4" value="29.90737609062262" />
-      <entry key="D1" value="32.44034038469615" />
-      <entry key="W1" value="32.91888050810655" />
+      <entry key="MS100" value="1.4363003316682375" />
+      <entry key="MS500" value="2.453463882161958" />
+      <entry key="S2" value="2.845290488878792" />
+      <entry key="S5" value="2.944218217571785" />
+      <entry key="S10" value="3.055804034715916" />
+      <entry key="S30" value="3.4382018594243324" />
+      <entry key="S60" value="3.824432859687621" />
+      <entry key="M2" value="4.8161183119756235" />
+      <entry key="M5" value="7.7707362548877095" />
+      <entry key="M10" value="12.026595402973937" />
+      <entry key="M15" value="15.063111694378746" />
+      <entry key="M30" value="20.633481747924794" />
+      <entry key="H1" value="26.14212829433709" />
+      <entry key="H2" value="30.559315089440286" />
+      <entry key="H4" value="33.462383110888155" />
+      <entry key="D1" value="36.35941804229883" />
+      <entry key="W1" value="36.907137766620664" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="0.0" />
-      <entry key="S2" value="0.0" />
-      <entry key="S5" value="0.0" />
-      <entry key="S10" value="0.0" />
-      <entry key="S30" value="0.0" />
-      <entry key="S60" value="0.0" />
-      <entry key="M2" value="0.0" />
-      <entry key="M5" value="0.0" />
-      <entry key="M10" value="0.0" />
-      <entry key="M15" value="0.0" />
-      <entry key="M30" value="0.0" />
-      <entry key="H1" value="0.0" />
-      <entry key="H2" value="0.0" />
-      <entry key="H4" value="0.0" />
-      <entry key="D1" value="0.0" />
-      <entry key="W1" value="0.0" />
+      <entry key="MS500" value="8.09433898619893E-182" />
+      <entry key="S2" value="5.333905868661E-46" />
+      <entry key="S5" value="7.777108158269133E-19" />
+      <entry key="S10" value="8.818791390133419E-10" />
+      <entry key="S30" value="9.589655882878733E-4" />
+      <entry key="S60" value="0.030967169523349613" />
+      <entry key="M2" value="0.17597491163046397" />
+      <entry key="M5" value="0.49909164805210254" />
+      <entry key="M10" value="0.7064641873811458" />
+      <entry key="M15" value="0.7932195950174805" />
+      <entry key="M30" value="0.8906287638615097" />
+      <entry key="H1" value="0.9437312985492796" />
+      <entry key="H2" value="0.9714583359821869" />
+      <entry key="H4" value="0.9856258600413176" />
+      <entry key="D1" value="0.9975898343444164" />
+      <entry key="W1" value="0.999655334442242" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.26427840830324" />
-      <entry key="MS500" value="2.019592295349746" />
-      <entry key="S2" value="3.5662081258968112" />
-      <entry key="S5" value="4.723217725984345" />
-      <entry key="S10" value="5.294929263025024" />
-      <entry key="S30" value="5.748233314076629" />
-      <entry key="S60" value="5.872278383879525" />
-      <entry key="M2" value="6.014101326534766" />
-      <entry key="M5" value="7.88313630397669" />
-      <entry key="M10" value="11.543612208331684" />
-      <entry key="M15" value="14.08299538591611" />
-      <entry key="M30" value="18.75933234768185" />
-      <entry key="H1" value="23.512176835180792" />
-      <entry key="H2" value="27.36797072072458" />
-      <entry key="H4" value="29.907355201169327" />
-      <entry key="D1" value="32.44033665963786" />
-      <entry key="W1" value="32.918879969412686" />
+      <entry key="MS100" value="1.3543133549485171" />
+      <entry key="MS500" value="2.4261182704778643" />
+      <entry key="S2" value="2.837392722564079" />
+      <entry key="S5" value="2.9408234126994497" />
+      <entry key="S10" value="3.0533760797077325" />
+      <entry key="S30" value="3.4370954903749777" />
+      <entry key="S60" value="3.8508950395663217" />
+      <entry key="M2" value="4.981898176501771" />
+      <entry key="M5" value="8.258570453382836" />
+      <entry key="M10" value="12.725069318185954" />
+      <entry key="M15" value="15.850330084629654" />
+      <entry key="M30" value="21.520719957508895" />
+      <entry key="H1" value="27.084052176859583" />
+      <entry key="H2" value="31.52983869711494" />
+      <entry key="H4" value="34.44753332114959" />
+      <entry key="D1" value="37.356927394332594" />
+      <entry key="W1" value="37.90678157318594" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -148,8 +148,8 @@
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "oauth-setup",
-    "javascript.nodejs.core.library.configured.version": "24.13.0",
+    "git-widget-placeholder": "main",
+    "javascript.nodejs.core.library.configured.version": "24.12.0",
     "javascript.nodejs.core.library.typings.version": "24.12.4",
     "javascript.preferred.runtime.type.id": "node",
     "js.debugger.nextJs.config.created.client": "true",
@@ -162,12 +162,14 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.standard": "",
     "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "/home/tjnelson/.nvm/versions/node/v24.13.0/bin/node",
+    "nodejs_interpreter_path": "node",
     "nodejs_package_manager_path": "npm",
     "npm.Next.js: server-side.executor": "Run",
+    "npm.build.executor": "Run",
+    "npm.start.executor": "Run",
     "settings.editor.selected.configurable": "settings.javascript.runtime",
     "to.speed.mode.migration.done": "true",
-    "ts.external.directory.path": "/home/tjnelson/dev/wwd430-team16/node_modules/typescript/lib",
+    "ts.external.directory.path": "/Users/tjnelson/dev/wwd430-team16/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -187,15 +189,45 @@
     <configuration name="Next.js: debug client-side" type="JavascriptDebugType" uri="http://localhost:3000/">
       <method v="2" />
     </configuration>
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="JavaScript Debug.Next.js: debug client-side" />
       <item itemvalue="npm.Server" />
+      <item itemvalue="npm.build" />
+      <item itemvalue="npm.start" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.start" />
+        <item itemvalue="npm.build" />
+        <item itemvalue="npm.start" />
+        <item itemvalue="npm.build" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-WS-261.23567.141" />
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-WS-261.25134.101" />
       </set>
     </attachedChunks>
   </component>
@@ -210,6 +242,8 @@
       <workItem from="1778812579002" duration="681000" />
       <workItem from="1778829592243" duration="1330000" />
       <workItem from="1778930058491" duration="2000" />
+      <workItem from="1781226253747" duration="179000" />
+      <workItem from="1781226461324" duration="3137000" />
     </task>
     <task id="LOCAL-00001" summary="initialize project structure with Next.js, Tailwind CSS, and ESLint configuration">
       <option name="closed" value="true" />
@@ -243,18 +277,65 @@
       <option name="project" value="LOCAL" />
       <updated>1780226076515</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Refactor login page and update TypeScript environment references">
+      <option name="closed" value="true" />
+      <created>1780901919524</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1780901919524</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Implement user profile update functionality with GitHub authentication">
+      <option name="closed" value="true" />
+      <created>1780903267174</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1780903267174</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Product Listing pages.">
+      <option name="closed" value="true" />
+      <created>1780907697758</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1780907697758</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Add validation for form fields and implement checkout and contact forms">
+      <option name="closed" value="true" />
+      <created>1781229403640</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1781229403640</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initialize project structure with Next.js, Tailwind CSS, and ESLint configuration" />
     <MESSAGE value="Implement authentication with GitHub; update Header and LoginPage components" />
     <MESSAGE value="Update workspace configuration for GitHub authentication; add server run configuration" />
     <MESSAGE value="Add next-auth dependency for GitHub authentication" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add next-auth dependency for GitHub authentication" />
+    <MESSAGE value="Refactor login page and update TypeScript environment references" />
+    <MESSAGE value="Implement user profile update functionality with GitHub authentication" />
+    <MESSAGE value="Product Listing pages." />
+    <MESSAGE value="Add validation for form fields and implement checkout and contact forms" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add validation for form fields and implement checkout and contact forms" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

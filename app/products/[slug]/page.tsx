@@ -38,6 +38,15 @@ export default async function ProductPage(props: { params: Promise<{ slug: strin
 
   return (
     <div className="bg-[#f8f8f8] text-[#343434]">
+      <div className="mx-auto max-w-6xl px-6 pt-6">
+        <Link
+          href="/products"
+          className="inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-[#343434] hover:bg-gray-100"
+        >
+          ← Back to Product Catalog
+        </Link>
+      </div>
+
       <div className="mx-auto grid max-w-6xl gap-12 px-6 py-12 md:grid-cols-2">
         {/* Product Image */}
         <div className="aspect-square w-full rounded-lg bg-[#e5e5e5] overflow-hidden relative">
@@ -76,7 +85,7 @@ export default async function ProductPage(props: { params: Promise<{ slug: strin
             type="button"
             className="mt-8 rounded-md bg-[#28582e] px-6 py-3 font-medium text-[#f8f8f8] hover:opacity-90 transition"
           >
-            Add to cart
+            Add to Cart
           </button>
         </div>
       </div>
