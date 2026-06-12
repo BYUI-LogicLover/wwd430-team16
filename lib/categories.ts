@@ -8,6 +8,7 @@ export const PRODUCT_CATEGORIES = [
   { slug: "jewelry", label: "Jewelry" },
   { slug: "art", label: "Art & Prints" },
   { slug: "home-goods", label: "Home Goods" },
+  { slug: "home-decor", label: "Home Decor" },
   { slug: "candles", label: "Candles" },
   { slug: "bath-beauty", label: "Bath & Beauty" },
   { slug: "paper-goods", label: "Paper Goods" },

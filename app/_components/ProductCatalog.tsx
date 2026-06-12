@@ -15,6 +15,7 @@ type Product = {
 
 type ProductCatalogProps = {
   products: Product[];
+  heading?: string;
 };
 
 const ITEMS_PER_PAGE = 6;
@@ -26,7 +27,10 @@ function formatPrice(cents: number) {
   }).format(cents / 100);
 }
 
-export default function ProductCatalog({ products }: ProductCatalogProps) {
+export default function ProductCatalog({
+  products,
+  heading = "Product Catalog",
+}: ProductCatalogProps) {
   const categories = ["All", ...Array.from(new Set(products.map((p) => p.category)))];
 
   const highestPrice =
@@ -70,7 +74,7 @@ export default function ProductCatalog({ products }: ProductCatalogProps) {
   return (
     <div className="min-h-screen bg-[#f8f8f8] text-[#343434]">
       <div className="mx-auto max-w-6xl px-6 py-12">
-        <h1 className="mb-8 text-4xl font-bold">Product Catalog</h1>
+        <h1 className="mb-8 text-4xl font-bold">{heading}</h1>
 
         <div className="mb-10 grid gap-4 md:grid-cols-3">
           <div>
