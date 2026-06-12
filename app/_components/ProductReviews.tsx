@@ -18,7 +18,7 @@ const initialReviews: Review[] = [
   },
   {
     id: 2,
-    author: "Michael",
+    author: "Albert",
     rating: 4,
     comment: "I loved the product!",
   },
