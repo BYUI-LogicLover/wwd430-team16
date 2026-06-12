@@ -2,6 +2,7 @@
 
 import { useActionState } from "react";
 import { PRODUCT_CATEGORIES } from "@/lib/categories";
+import { LIMITS } from "@/lib/validation";
 import type { ListingState } from "./actions";
 
 type ProductFormProps = {
@@ -36,12 +37,12 @@ export default function ProductForm({
 
       <label className="grid gap-1">
         <span className="text-sm font-medium">Title</span>
-        <input name="title" type="text" defaultValue={defaults?.title ?? ""} required className={inputClass} />
+        <input name="title" type="text" defaultValue={defaults?.title ?? ""} required maxLength={LIMITS.productTitle} className={inputClass} />
       </label>
 
       <label className="grid gap-1">
         <span className="text-sm font-medium">Description</span>
-        <textarea name="description" rows={5} defaultValue={defaults?.description ?? ""} className={inputClass} />
+        <textarea name="description" rows={5} defaultValue={defaults?.description ?? ""} maxLength={LIMITS.productDescription} className={inputClass} />
       </label>
 
       <div className="grid gap-4 sm:grid-cols-2">
@@ -51,6 +52,7 @@ export default function ProductForm({
             name="price"
             type="number"
             min="0"
+            max="1000000"
             step="0.01"
             inputMode="decimal"
             placeholder="24.99"

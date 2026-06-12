@@ -12,6 +12,7 @@ import {
 } from "@/lib/products";
 import { isValidCategory } from "@/lib/categories";
 import { uploadProductImage, deleteProductImage, isSupportedImageType } from "@/lib/storage";
+import { LIMITS, MAX_PRICE_CENTS, validateText } from "@/lib/validation";
 
 export type ListingState = { ok: boolean; message: string };
 
@@ -37,7 +38,12 @@ type ParsedFields =
 
 function parseFields(formData: FormData): ParsedFields {
   const title = String(formData.get("title") ?? "").trim();
-  if (!title) return { ok: false, message: "Title is required." };
+  const description = String(formData.get("description") ?? "").trim();
+
+  const fieldError =
+    validateText(title, { label: "Title", max: LIMITS.productTitle, required: true }) ??
+    validateText(description, { label: "Description", max: LIMITS.productDescription });
+  if (fieldError) return { ok: false, message: fieldError };
 
   const priceRaw = String(formData.get("price") ?? "").trim();
   const price = Number(priceRaw);
@@ -45,13 +51,14 @@ function parseFields(formData: FormData): ParsedFields {
     return { ok: false, message: "Enter a valid price (e.g. 24.99)." };
   }
   const priceCents = Math.round(price * 100);
+  if (priceCents > MAX_PRICE_CENTS) {
+    return { ok: false, message: "Price is too high." };
+  }
 
   let category = String(formData.get("category") ?? "").trim();
   if (!isValidCategory(category)) category = "other";
 
-  const description = String(formData.get("description") ?? "").trim() || null;
-
-  return { ok: true, title, description, priceCents, category };
+  return { ok: true, title, description: description || null, priceCents, category };
 }
 
 function getImageFile(formData: FormData): File | null {

@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
+import { LIMITS } from "@/lib/validation";
 import { updateProfile, type ProfileState } from "./actions";
 
 type ProfileFormProps = {
@@ -27,6 +28,7 @@ export default function ProfileForm({
           type="text"
           defaultValue={defaultName}
           required
+          maxLength={LIMITS.name}
           className="rounded-md border border-black/10 px-3 py-2"
         />
       </label>
@@ -37,6 +39,7 @@ export default function ProfileForm({
           name="email"
           type="email"
           defaultValue={defaultEmail}
+          maxLength={LIMITS.email}
           className="rounded-md border border-black/10 px-3 py-2"
         />
       </label>
@@ -47,6 +50,7 @@ export default function ProfileForm({
           name="shippingAddress"
           rows={3}
           defaultValue={defaultShippingAddress}
+          maxLength={LIMITS.shippingAddress}
           className="rounded-md border border-black/10 px-3 py-2"
         />
       </label>

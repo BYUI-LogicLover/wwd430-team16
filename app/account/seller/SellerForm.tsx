@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useActionState } from "react";
+import { LIMITS } from "@/lib/validation";
 import { saveSeller, type SellerState } from "./actions";
 
 type SellerFormProps = {
@@ -29,7 +30,7 @@ export default function SellerForm({ isSeller, defaults }: SellerFormProps) {
     <form action={formAction} className="mt-8 grid gap-4">
       <label className="grid gap-1">
         <span className="text-sm font-medium">Shop name</span>
-        <input name="shopName" type="text" defaultValue={defaults.shopName} required className={inputClass} />
+        <input name="shopName" type="text" defaultValue={defaults.shopName} required maxLength={LIMITS.shopName} className={inputClass} />
       </label>
 
       <label className="grid gap-1">
@@ -39,6 +40,7 @@ export default function SellerForm({ isSeller, defaults }: SellerFormProps) {
           type="text"
           defaultValue={defaults.slug}
           placeholder="auto-generated from shop name"
+          maxLength={LIMITS.slug}
           className={inputClass}
         />
         <span className="text-xs opacity-60">Your shop will live at /sellers/your-shop-url</span>
@@ -51,18 +53,19 @@ export default function SellerForm({ isSeller, defaults }: SellerFormProps) {
           type="text"
           defaultValue={defaults.tagline}
           placeholder="Handmade ceramics & textiles"
+          maxLength={LIMITS.tagline}
           className={inputClass}
         />
       </label>
 
       <label className="grid gap-1">
         <span className="text-sm font-medium">About your shop</span>
-        <textarea name="bio" rows={4} defaultValue={defaults.bio} className={inputClass} />
+        <textarea name="bio" rows={4} defaultValue={defaults.bio} maxLength={LIMITS.bio} className={inputClass} />
       </label>
 
       <label className="grid gap-1">
         <span className="text-sm font-medium">Location</span>
-        <input name="location" type="text" defaultValue={defaults.location} placeholder="Rexburg, ID" className={inputClass} />
+        <input name="location" type="text" defaultValue={defaults.location} placeholder="Rexburg, ID" maxLength={LIMITS.location} className={inputClass} />
       </label>
 
       <label className="grid gap-1">
@@ -72,6 +75,7 @@ export default function SellerForm({ isSeller, defaults }: SellerFormProps) {
           type="text"
           defaultValue={defaults.specialties}
           placeholder="Woodworking, Home goods, Furniture"
+          maxLength={LIMITS.specialties}
           className={inputClass}
         />
         <span className="text-xs opacity-60">Comma-separated</span>
@@ -79,12 +83,12 @@ export default function SellerForm({ isSeller, defaults }: SellerFormProps) {
 
       <label className="grid gap-1">
         <span className="text-sm font-medium">Website</span>
-        <input name="websiteUrl" type="url" defaultValue={defaults.websiteUrl} placeholder="https://" className={inputClass} />
+        <input name="websiteUrl" type="url" defaultValue={defaults.websiteUrl} placeholder="https://" maxLength={LIMITS.url} className={inputClass} />
       </label>
 
       <label className="grid gap-1">
         <span className="text-sm font-medium">Instagram</span>
-        <input name="instagramUrl" type="url" defaultValue={defaults.instagramUrl} placeholder="https://instagram.com/" className={inputClass} />
+        <input name="instagramUrl" type="url" defaultValue={defaults.instagramUrl} placeholder="https://instagram.com/" maxLength={LIMITS.url} className={inputClass} />
       </label>
 
       {state.message ? (

@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { auth } from "@/auth";
 import { query } from "@/lib/db";
+import { LIMITS, EMAIL_RE, validateText } from "@/lib/validation";
 
 export type ProfileState = {
   ok: boolean;
@@ -22,10 +23,14 @@ export async function updateProfile(
   const email = String(formData.get("email") ?? "").trim();
   const shippingAddress = String(formData.get("shippingAddress") ?? "").trim();
 
-  if (!name) {
-    return { ok: false, message: "Name is required." };
+  const fieldError =
+    validateText(name, { label: "Name", max: LIMITS.name, required: true }) ??
+    validateText(email, { label: "Email", max: LIMITS.email }) ??
+    validateText(shippingAddress, { label: "Shipping address", max: LIMITS.shippingAddress });
+  if (fieldError) {
+    return { ok: false, message: fieldError };
   }
-  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+  if (email && !EMAIL_RE.test(email)) {
     return { ok: false, message: "Please enter a valid email address." };
   }
 

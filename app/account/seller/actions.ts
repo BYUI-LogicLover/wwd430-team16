@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { auth } from "@/auth";
 import { upsertSeller, slugify } from "@/lib/sellers";
+import { LIMITS, validateText } from "@/lib/validation";
 
 export type SellerState = {
   ok: boolean;
@@ -30,11 +31,25 @@ export async function saveSeller(
   const shopName = String(formData.get("shopName") ?? "").trim();
   const slugInput = String(formData.get("slug") ?? "").trim();
   const slug = slugify(slugInput || shopName);
+  const tagline = String(formData.get("tagline") ?? "").trim();
+  const bio = String(formData.get("bio") ?? "").trim();
+  const location = String(formData.get("location") ?? "").trim();
+  const specialtiesRaw = String(formData.get("specialties") ?? "").trim();
+  const websiteUrl = String(formData.get("websiteUrl") ?? "").trim();
+  const instagramUrl = String(formData.get("instagramUrl") ?? "").trim();
 
-  if (!shopName) {
-    return { ok: false, message: "Shop name is required." };
+  const fieldError =
+    validateText(shopName, { label: "Shop name", max: LIMITS.shopName, required: true }) ??
+    validateText(tagline, { label: "Tagline", max: LIMITS.tagline }) ??
+    validateText(bio, { label: "About your shop", max: LIMITS.bio }) ??
+    validateText(location, { label: "Location", max: LIMITS.location }) ??
+    validateText(specialtiesRaw, { label: "Specialties", max: LIMITS.specialties }) ??
+    validateText(websiteUrl, { label: "Website", max: LIMITS.url }) ??
+    validateText(instagramUrl, { label: "Instagram", max: LIMITS.url });
+  if (fieldError) {
+    return { ok: false, message: fieldError };
   }
-  if (!slug) {
+  if (!slug || slug.length > LIMITS.slug) {
     return { ok: false, message: "Please provide a valid shop URL (letters and numbers)." };
   }
 
@@ -42,12 +57,12 @@ export async function saveSeller(
     await upsertSeller(session.user.id, {
       shopName,
       slug,
-      tagline: String(formData.get("tagline") ?? "").trim() || null,
-      bio: String(formData.get("bio") ?? "").trim() || null,
-      location: String(formData.get("location") ?? "").trim() || null,
-      specialties: parseSpecialties(String(formData.get("specialties") ?? "")),
-      websiteUrl: String(formData.get("websiteUrl") ?? "").trim() || null,
-      instagramUrl: String(formData.get("instagramUrl") ?? "").trim() || null,
+      tagline: tagline || null,
+      bio: bio || null,
+      location: location || null,
+      specialties: parseSpecialties(specialtiesRaw),
+      websiteUrl: websiteUrl || null,
+      instagramUrl: instagramUrl || null,
     });
   } catch (err) {
     // sellers.slug is unique — another shop already uses this URL.
