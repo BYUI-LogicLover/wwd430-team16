@@ -2,7 +2,7 @@
 -- their own listings from /account/listings.
 create table if not exists public.products (
   id            text primary key default gen_random_uuid()::text,
-  "sellerId"    integer not null references public.sellers("userId") on delete cascade,
+  "sellerId"    text not null references public.sellers("userId") on delete cascade,
   title         text not null,
   slug          text not null unique,
   description   text,

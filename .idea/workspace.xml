@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e63a935-2db4-453e-8a26-0a6467626c12" name="Changes" comment="Product Listing pages.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/account/listings/ProductForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/account/listings/ProductForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/account/listings/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/account/listings/actions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/account/profile/ProfileForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/account/profile/ProfileForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/account/profile/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/account/profile/actions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/account/seller/SellerForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/account/seller/SellerForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/account/seller/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/account/seller/actions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/checkout/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/checkout/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/contact/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/contact/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/products.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/products.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/sellers.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/sellers.sql" afterDir="false" />
-    </list>
+    <list default="true" id="1e63a935-2db4-453e-8a26-0a6467626c12" name="Changes" comment="Add validation for form fields and implement checkout and contact forms" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -255,7 +243,7 @@
       <workItem from="1778829592243" duration="1330000" />
       <workItem from="1778930058491" duration="2000" />
       <workItem from="1781226253747" duration="179000" />
-      <workItem from="1781226461324" duration="2675000" />
+      <workItem from="1781226461324" duration="3137000" />
     </task>
     <task id="LOCAL-00001" summary="initialize project structure with Next.js, Tailwind CSS, and ESLint configuration">
       <option name="closed" value="true" />
@@ -313,7 +301,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780907697758</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Add validation for form fields and implement checkout and contact forms">
+      <option name="closed" value="true" />
+      <created>1781229403640</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1781229403640</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -338,7 +334,8 @@
     <MESSAGE value="Refactor login page and update TypeScript environment references" />
     <MESSAGE value="Implement user profile update functionality with GitHub authentication" />
     <MESSAGE value="Product Listing pages." />
-    <option name="LAST_COMMIT_MESSAGE" value="Product Listing pages." />
+    <MESSAGE value="Add validation for form fields and implement checkout and contact forms" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add validation for form fields and implement checkout and contact forms" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

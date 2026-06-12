@@ -3,7 +3,7 @@
 -- private account fields on `users`.
 create table if not exists public.sellers
 (
-    "userId"       integer primary key references public.users (userid) on delete cascade,
+    "userId"       text primary key references public.users (id) on delete cascade,
     "shopName"     text                        not null,
     slug           text                        not null unique,
     tagline        text,
