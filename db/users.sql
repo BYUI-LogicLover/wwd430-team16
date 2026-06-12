@@ -1,17 +1,4 @@
--- Account records. One row per signed-in person. `id` holds the GitHub account
--- id (a numeric string) — auth.ts stores it as text on first sign-in. Private
--- account fields (shipping address, editable email/name) live here; public
--- storefront data lives in `sellers`. Apply this BEFORE sellers.sql / products.sql.
-
--- Shared trigger function: stamps NEW."updatedAt" = now() on every UPDATE.
--- Defined here because it is reused by users, sellers, and products.
-create or replace function public.update_updated_at_column()
-returns trigger as $$
-begin
-  new."updatedAt" = now();
-  return new;
-end;
-$$ language plpgsql;
+-- Create the "users" table.
 
 create table if not exists public.users (
   id                text primary key,
