@@ -1,21 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-        port: "",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "hggzvmzsxlvbxdecqjhr.supabase.co",
-        port: "",
-        pathname: "/storage/v1/object/public/**",
-      },
-    ],
+  turbopack: {
+    // Pin the workspace root to this project. Without this, Next walks up the
+    // tree and mistakes a stray lockfile in the home directory for the root.
+    root: import.meta.dirname,
   },
 };
 

@@ -1,46 +1,56 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { addReview } from "@/app/actions";
 
-export type Review = {
-  id: string;
-  product_id: string;
+type Review = {
+  id: number;
   author: string;
   rating: number;
   comment: string;
-  created_at: Date;
 };
 
-export default function ProductReviews({ 
-  productId, 
-  initialReviews 
-}: { 
-  productId: string; 
-  initialReviews: Review[] 
-}) {
+const initialReviews: Review[] = [
+  {
+    id: 1,
+    author: "Sarah",
+    rating: 5,
+    comment: "High quality",
+  },
+  {
+    id: 2,
+    author: "Albert",
+    rating: 4,
+    comment: "I loved the product!",
+  },
+];
+
+export default function ProductReviews() {
+  const [reviews, setReviews] = useState(initialReviews);
   const [rating, setRating] = useState(5);
   const [comment, setComment] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const averageRating = useMemo(() => {
-    if (initialReviews.length === 0) return "0.0";
     return (
-      initialReviews.reduce((acc, review) => acc + review.rating, 0) /
-      initialReviews.length
+      reviews.reduce((acc, review) => acc + review.rating, 0) /
+      reviews.length
     ).toFixed(1);
-  }, [initialReviews]);
+  }, [reviews]);
 
-  async function handleSubmit(e: React.FormEvent) {
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+
     if (!comment.trim()) return;
 
-    setIsSubmitting(true);
-    await addReview(productId, rating, comment);
-    
+    const newReview: Review = {
+      id: Date.now(),
+      author: "Anonymous User",
+      rating,
+      comment,
+    };
+
+    setReviews([newReview, ...reviews]);
     setComment("");
     setRating(5);
-    setIsSubmitting(false);
   }
 
   return (
@@ -51,28 +61,32 @@ export default function ProductReviews({
         <div className="mt-4">
           <span className="text-3xl font-bold">{averageRating}</span>
           <span className="ml-2 text-gray-500">
-            / 5 ({initialReviews.length} reviews)
+            / 5 ({reviews.length} reviews)
           </span>
         </div>
 
         <div className="mt-8 space-y-4">
-          {initialReviews.length === 0 && (
-            <p className="text-sm opacity-70">No reviews yet. Be the first!</p>
-          )}
-          {initialReviews.map((review) => (
-            <div key={review.id} className="rounded-lg border bg-white p-4">
+          {reviews.map((review) => (
+            <div
+              key={review.id}
+              className="rounded-lg border bg-white p-4"
+            >
               <div className="font-semibold">{review.author}</div>
+
               <div className="text-yellow-500">
                 {"★".repeat(review.rating)}
                 {"☆".repeat(5 - review.rating)}
               </div>
+
               <p className="mt-2 text-sm">{review.comment}</p>
             </div>
           ))}
         </div>
 
         <form onSubmit={handleSubmit} className="mt-10">
-          <h3 className="mb-4 text-xl font-semibold">Leave a Review</h3>
+          <h3 className="mb-4 text-xl font-semibold">
+            Leave a Review
+          </h3>
 
           <label className="block">
             Rating
@@ -80,7 +94,6 @@ export default function ProductReviews({
               value={rating}
               onChange={(e) => setRating(Number(e.target.value))}
               className="mt-1 w-full rounded border p-2"
-              disabled={isSubmitting}
             >
               <option value={5}>5 Stars</option>
               <option value={4}>4 Stars</option>
@@ -98,16 +111,14 @@ export default function ProductReviews({
               rows={4}
               className="mt-1 w-full rounded border p-2"
               required
-              disabled={isSubmitting}
             />
           </label>
 
           <button
             type="submit"
-            disabled={isSubmitting}
-            className="mt-4 rounded bg-[#28582e] px-5 py-2 text-white disabled:opacity-50"
+            className="mt-4 rounded bg-[#28582e] px-5 py-2 text-white"
           >
-            {isSubmitting ? "Submitting..." : "Submit Review"}
+            Submit Review
           </button>
         </form>
       </div>
