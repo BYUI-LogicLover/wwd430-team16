@@ -1,13 +1,33 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
+import { auth } from "@/auth";
+import { createOrder, type CartLine } from "@/lib/orders";
 import { LIMITS, validateText, luhnValid, expiryValid } from "@/lib/validation";
 
-export type CheckoutState = { ok: boolean; message: string };
+export type CheckoutState = { ok: boolean; message: string; orderId?: string };
+
+function parseLines(raw: string): CartLine[] {
+  try {
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return [];
+    return parsed
+      .map((l) => ({ productId: String(l.productId ?? ""), quantity: Number(l.quantity) }))
+      .filter((l) => l.productId && Number.isInteger(l.quantity) && l.quantity > 0);
+  } catch {
+    return [];
+  }
+}
 
 export async function placeOrder(
   _prev: CheckoutState,
   formData: FormData,
 ): Promise<CheckoutState> {
+  const session = await auth();
+  if (!session?.user?.id) {
+    return { ok: false, message: "Please sign in to place an order." };
+  }
+
   const fullName = String(formData.get("fullName") ?? "").trim();
   const street = String(formData.get("street") ?? "").trim();
   const city = String(formData.get("city") ?? "").trim();
@@ -38,7 +58,23 @@ export async function placeOrder(
     return { ok: false, message: "Enter a valid CVC (3 or 4 digits)." };
   }
 
-  // No payment processor or order backend is wired up. In production, card data
-  // must go to a PCI-compliant processor (e.g. Stripe) and never be handled here.
-  return { ok: true, message: "Order placed! A confirmation will be sent to you." };
+  const lines = parseLines(String(formData.get("items") ?? ""));
+  if (lines.length === 0) {
+    return { ok: false, message: "Your cart is empty." };
+  }
+
+  // Card data is intentionally not stored. In production it must go to a
+  // PCI-compliant processor (e.g. Stripe) and never be handled here. We persist
+  // only the order and its items; prices are re-read from the DB in createOrder.
+  const orderId = await createOrder(
+    session.user.id,
+    { fullName, street, city, zip },
+    lines,
+  );
+  if (!orderId) {
+    return { ok: false, message: "We couldn't find those items. Please review your cart." };
+  }
+
+  revalidatePath("/account/orders");
+  return { ok: true, message: "Order placed! A confirmation will be sent to you.", orderId };
 }

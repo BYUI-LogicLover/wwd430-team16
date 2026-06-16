@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ProductReviews from "@/app/_components/ProductReviews";
+import AddToCartButton from "@/app/_components/AddToCartButton";
 import { getProductBySlug, categoryLabel } from "@/lib/products";
 
 function formatPrice(cents: number): string {
@@ -68,16 +69,19 @@ export default async function ProductPage(props: PageProps<"/products/[slug]">) 
             </p>
           ) : null}
 
-          <button
-            type="button"
-            className="mt-8 rounded-md bg-[#28582e] px-6 py-3 font-medium text-[#f8f8f8] hover:opacity-90"
-          >
-            Add to Cart
-          </button>
+          <AddToCartButton
+            product={{
+              productId: product.id,
+              slug: product.slug,
+              title: product.title,
+              priceCents: product.priceCents,
+              imageUrl: product.imageUrl,
+            }}
+          />
         </div>
       </div>
 
-      <ProductReviews />
+      <ProductReviews productId={product.id} slug={slug} />
 
       <div className="mx-auto max-w-6xl px-6 pb-12">
         <div className="mt-8 flex justify-center">

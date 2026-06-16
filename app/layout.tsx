@@ -3,6 +3,7 @@ import { Montserrat, Hind } from "next/font/google";
 import "./globals.css";
 import Header from "./_components/Header";
 import Footer from "./_components/Footer";
+import { CartProvider } from "./_components/CartProvider";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -31,9 +32,11 @@ export default function RootLayout({
       className={`${montserrat.variable} ${hind.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col font-[family-name:var(--font-hind)]">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <CartProvider>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </CartProvider>
       </body>
     </html>
   );

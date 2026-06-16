@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { auth, signOut } from "@/auth";
+import CartLink from "./CartLink";
 
 const NAV_LINKS = [
   { href: "/products", label: "Shop" },
@@ -50,12 +51,7 @@ export default async function Header() {
               Sign in
             </Link>
           )}
-          <Link
-            href="/cart"
-            className="rounded-md bg-[#28582e] px-3 py-1.5 font-medium hover:opacity-90"
-          >
-            Cart
-          </Link>
+          <CartLink />
         </div>
       </div>
     </header>

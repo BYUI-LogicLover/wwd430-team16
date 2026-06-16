@@ -1,6 +1,7 @@
 import { randomBytes } from "crypto";
 import { query } from "@/lib/db";
 import { slugify } from "@/lib/sellers";
+import { PRODUCT_CATEGORIES } from "@/lib/categories";
 
 export {
   PRODUCT_CATEGORIES,
@@ -108,6 +109,21 @@ export async function listAllProducts(): Promise<ProductWithSeller[]> {
       order by p."createdAt" desc`,
   );
   return result.rows;
+}
+
+/**
+ * Categories that have at least one listing, returned as {slug, label} in the
+ * canonical PRODUCT_CATEGORIES order. Drives the home page category grid.
+ */
+export async function listCategoriesWithListings(): Promise<{ slug: string; label: string }[]> {
+  const result = await query<{ category: string }>(
+    `select distinct category from public.products`,
+  );
+  const present = new Set(result.rows.map((r) => r.category));
+  return PRODUCT_CATEGORIES.filter((c) => present.has(c.slug)).map((c) => ({
+    slug: c.slug,
+    label: c.label,
+  }));
 }
 
 /** Listings in a category (for /shop/[category]). */

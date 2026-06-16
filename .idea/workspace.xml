@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e63a935-2db4-453e-8a26-0a6467626c12" name="Changes" comment="Add validation for form fields and implement checkout and contact forms" />
+    <list default="true" id="1e63a935-2db4-453e-8a26-0a6467626c12" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/_components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_components/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/_components/ProductReviews.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_components/ProductReviews.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/account/orders/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/account/orders/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/cart/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/cart/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/checkout/CheckoutForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/checkout/CheckoutForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/checkout/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/checkout/actions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/checkout/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/checkout/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/products/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/products/[slug]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/products.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/products.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/validation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/validation.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,7 +48,7 @@
     </persistenceIdMap>
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="93" />
+    <option name="cachedIndexableFilesCount" value="97" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="Git.Settings">
@@ -64,61 +78,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.4363003316682375" />
-      <entry key="MS500" value="2.453463882161958" />
-      <entry key="S2" value="2.845290488878792" />
-      <entry key="S5" value="2.944218217571785" />
-      <entry key="S10" value="3.055804034715916" />
-      <entry key="S30" value="3.4382018594243324" />
-      <entry key="S60" value="3.824432859687621" />
-      <entry key="M2" value="4.8161183119756235" />
-      <entry key="M5" value="7.7707362548877095" />
-      <entry key="M10" value="12.026595402973937" />
-      <entry key="M15" value="15.063111694378746" />
-      <entry key="M30" value="20.633481747924794" />
-      <entry key="H1" value="26.14212829433709" />
-      <entry key="H2" value="30.559315089440286" />
-      <entry key="H4" value="33.462383110888155" />
-      <entry key="D1" value="36.35941804229883" />
-      <entry key="W1" value="36.907137766620664" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0" />
+      <entry key="S10" value="1.0" />
+      <entry key="S30" value="1.0" />
+      <entry key="S60" value="1.0" />
+      <entry key="M2" value="1.0000000000041627" />
+      <entry key="M5" value="1.000116180693167" />
+      <entry key="M10" value="1.0465027459005405" />
+      <entry key="M15" value="1.3710837709377386" />
+      <entry key="M30" value="4.238554056826267" />
+      <entry key="H1" value="11.356911324594282" />
+      <entry key="H2" value="20.234826553392644" />
+      <entry key="H4" value="27.54784028386149" />
+      <entry key="D1" value="35.983423825466595" />
+      <entry key="W1" value="37.70429189336048" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="8.09433898619893E-182" />
-      <entry key="S2" value="5.333905868661E-46" />
-      <entry key="S5" value="7.777108158269133E-19" />
-      <entry key="S10" value="8.818791390133419E-10" />
-      <entry key="S30" value="9.589655882878733E-4" />
-      <entry key="S60" value="0.030967169523349613" />
-      <entry key="M2" value="0.17597491163046397" />
-      <entry key="M5" value="0.49909164805210254" />
-      <entry key="M10" value="0.7064641873811458" />
-      <entry key="M15" value="0.7932195950174805" />
-      <entry key="M30" value="0.8906287638615097" />
-      <entry key="H1" value="0.9437312985492796" />
-      <entry key="H2" value="0.9714583359821869" />
-      <entry key="H4" value="0.9856258600413176" />
-      <entry key="D1" value="0.9975898343444164" />
-      <entry key="W1" value="0.999655334442242" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="2.3503135320874066E-308" />
+      <entry key="S10" value="1.5330732311561002E-154" />
+      <entry key="S30" value="5.352059917926092E-52" />
+      <entry key="S60" value="2.3134519484800398E-26" />
+      <entry key="M2" value="1.521003599101606E-13" />
+      <entry key="M5" value="7.46194591125707E-6" />
+      <entry key="M10" value="0.002731656257887707" />
+      <entry key="M15" value="0.019541176117723304" />
+      <entry key="M30" value="0.13978975684120531" />
+      <entry key="H1" value="0.3738846838815483" />
+      <entry key="H2" value="0.6114611057798757" />
+      <entry key="H4" value="0.7819597852702374" />
+      <entry key="D1" value="0.9598368141714412" />
+      <entry key="W1" value="0.9941611137699055" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.3543133549485171" />
-      <entry key="MS500" value="2.4261182704778643" />
-      <entry key="S2" value="2.837392722564079" />
-      <entry key="S5" value="2.9408234126994497" />
-      <entry key="S10" value="3.0533760797077325" />
-      <entry key="S30" value="3.4370954903749777" />
-      <entry key="S60" value="3.8508950395663217" />
-      <entry key="M2" value="4.981898176501771" />
-      <entry key="M5" value="8.258570453382836" />
-      <entry key="M10" value="12.725069318185954" />
-      <entry key="M15" value="15.850330084629654" />
-      <entry key="M30" value="21.520719957508895" />
-      <entry key="H1" value="27.084052176859583" />
-      <entry key="H2" value="31.52983869711494" />
-      <entry key="H4" value="34.44753332114959" />
-      <entry key="D1" value="37.356927394332594" />
-      <entry key="W1" value="37.90678157318594" />
+      <entry key="MS100" value="0.0010986899264539155" />
+      <entry key="MS500" value="0.25596172510711057" />
+      <entry key="S2" value="0.7112851752380788" />
+      <entry key="S5" value="0.8726046096041732" />
+      <entry key="S10" value="0.9341330791724342" />
+      <entry key="S30" value="0.97754385603866" />
+      <entry key="S60" value="0.9887081753675652" />
+      <entry key="M2" value="0.9943380588995517" />
+      <entry key="M5" value="0.9978548393177517" />
+      <entry key="M10" value="1.0480685449247555" />
+      <entry key="M15" value="1.389720321528584" />
+      <entry key="M30" value="4.377433181218655" />
+      <entry key="H1" value="11.729890701943857" />
+      <entry key="H2" value="20.845604687533942" />
+      <entry key="H4" value="28.32937539005681" />
+      <entry key="D1" value="36.94317531699595" />
+      <entry key="W1" value="38.6984404160192" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -136,46 +150,47 @@
     <option name="showMembers" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "javascript.nodejs.core.library.configured.version": "24.12.0",
-    "javascript.nodejs.core.library.typings.version": "24.12.4",
-    "javascript.preferred.runtime.type.id": "node",
-    "js.debugger.nextJs.config.created.client": "true",
-    "js.debugger.nextJs.config.created.server": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/Users/tjnelson/dev/wwd430-team16",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "node",
-    "nodejs_package_manager_path": "npm",
-    "npm.Next.js: server-side.executor": "Run",
-    "npm.build.executor": "Run",
-    "npm.start.executor": "Run",
-    "settings.editor.selected.configurable": "settings.javascript.runtime",
-    "to.speed.mode.migration.done": "true",
-    "ts.external.directory.path": "/Users/tjnelson/dev/wwd430-team16/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;24.12.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;24.12.4&quot;,
+    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
+    &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
+    &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/tjnelson/dev/wwd430-team16&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.Next.js: server-side.executor&quot;: &quot;Run&quot;,
+    &quot;npm.Server.executor&quot;: &quot;Run&quot;,
+    &quot;npm.build.executor&quot;: &quot;Run&quot;,
+    &quot;npm.start.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.runtime&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/tjnelson/dev/wwd430-team16/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "stardust.markdown.MarkdownSplitEditorSuppressor:keyList": []
+  &quot;keyToStringList&quot;: {
+    &quot;stardust.markdown.MarkdownSplitEditorSuppressor:keyList&quot;: []
   }
-}]]></component>
+}</component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -243,7 +258,9 @@
       <workItem from="1778829592243" duration="1330000" />
       <workItem from="1778930058491" duration="2000" />
       <workItem from="1781226253747" duration="179000" />
-      <workItem from="1781226461324" duration="3137000" />
+      <workItem from="1781226461324" duration="6994000" />
+      <workItem from="1781260684571" duration="6878000" />
+      <workItem from="1781641164040" duration="3244000" />
     </task>
     <task id="LOCAL-00001" summary="initialize project structure with Next.js, Tailwind CSS, and ESLint configuration">
       <option name="closed" value="true" />
@@ -309,7 +326,31 @@
       <option name="project" value="LOCAL" />
       <updated>1781229403640</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Refactor user and seller ID types from integer to text for GitHub authentication compatibility">
+      <option name="closed" value="true" />
+      <created>1781229897359</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1781229897359</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Update .gitignore to include .vercel and clean up users.sql by removing unused comments and trigger function">
+      <option name="closed" value="true" />
+      <created>1781260812311</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1781260812311</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Add &quot;Home Decor&quot; category and refactor category and shop pages to use ProductCatalog component">
+      <option name="closed" value="true" />
+      <created>1781266946702</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1781266946702</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -335,7 +376,10 @@
     <MESSAGE value="Implement user profile update functionality with GitHub authentication" />
     <MESSAGE value="Product Listing pages." />
     <MESSAGE value="Add validation for form fields and implement checkout and contact forms" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add validation for form fields and implement checkout and contact forms" />
+    <MESSAGE value="Refactor user and seller ID types from integer to text for GitHub authentication compatibility" />
+    <MESSAGE value="Update .gitignore to include .vercel and clean up users.sql by removing unused comments and trigger function" />
+    <MESSAGE value="Add &quot;Home Decor&quot; category and refactor category and shop pages to use ProductCatalog component" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add &quot;Home Decor&quot; category and refactor category and shop pages to use ProductCatalog component" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -20,6 +20,8 @@ export const LIMITS = {
   productDescription: 2000,
   // contact
   contactMessage: 2000,
+  // review
+  reviewComment: 1000,
   // checkout
   street: 200,
   city: 100,
