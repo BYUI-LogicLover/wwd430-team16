@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ProductReviews from "@/app/_components/ProductReviews";
@@ -8,6 +10,41 @@ function formatPrice(cents: number): string {
   return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(cents / 100);
 }
 
+export async function generateMetadata(
+  props: PageProps<"/products/[slug]">,
+): Promise<Metadata> {
+  const { slug } = await props.params;
+  const product = await getProductBySlug(slug);
+
+  if (!product) {
+    return { title: "Product not found" };
+  }
+
+  const description =
+    product.description?.slice(0, 200) ??
+    `${product.title} by ${product.shopName} on Handcrafted Marketplace.`;
+  const canonical = `/products/${product.slug}`;
+
+  return {
+    title: product.title,
+    description,
+    alternates: { canonical },
+    openGraph: {
+      type: "website",
+      title: product.title,
+      description,
+      url: canonical,
+      images: product.imageUrl ? [{ url: product.imageUrl }] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: product.title,
+      description,
+      images: product.imageUrl ? [product.imageUrl] : undefined,
+    },
+  };
+}
+
 export default async function ProductPage(props: PageProps<"/products/[slug]">) {
   const { slug } = await props.params;
   const product = await getProductBySlug(slug);
@@ -15,8 +52,28 @@ export default async function ProductPage(props: PageProps<"/products/[slug]">) 
     notFound();
   }
 
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.title,
+    image: product.imageUrl ?? undefined,
+    description: product.description ?? undefined,
+    category: categoryLabel(product.category),
+    brand: { "@type": "Brand", name: product.shopName },
+    offers: {
+      "@type": "Offer",
+      price: (product.priceCents / 100).toFixed(2),
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+    },
+  };
+
   return (
     <div className="bg-[#f8f8f8] text-[#343434]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
       <div className="mx-auto max-w-6xl px-6 pt-6">
         <Link
           href="/products"
@@ -28,12 +85,17 @@ export default async function ProductPage(props: PageProps<"/products/[slug]">) 
 
       <div className="mx-auto grid max-w-6xl gap-12 px-6 py-12 md:grid-cols-2">
         {product.imageUrl ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={product.imageUrl}
-            alt={product.title}
-            className="aspect-square w-full rounded-lg object-cover"
-          />
+          <div className="relative aspect-square w-full overflow-hidden rounded-lg">
+            <Image
+              src={product.imageUrl}
+              alt={product.title}
+              fill
+              sizes="(max-width: 768px) 100vw, 576px"
+              className="object-cover"
+              // Main product image is the LCP element on this page.
+              preload
+            />
+          </div>
         ) : (
           <div className="flex aspect-square items-center justify-center rounded-lg bg-[#e5e5e5]">
             <span className="opacity-60">Product Image</span>

@@ -4,20 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e63a935-2db4-453e-8a26-0a6467626c12" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/_components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_components/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/_components/ProductReviews.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_components/ProductReviews.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/account/orders/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/account/orders/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/cart/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/cart/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/checkout/CheckoutForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/checkout/CheckoutForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/checkout/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/checkout/actions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/checkout/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/checkout/page.tsx" afterDir="false" />
+    <list default="true" id="1e63a935-2db4-453e-8a26-0a6467626c12" name="Changes" comment="Implement cart functionality with AddToCartButton, CartProvider, and CartLink components; enhance checkout process with order creation and validation">
+      <change beforePath="$PROJECT_DIR$/app/_components/ProductCatalog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_components/ProductCatalog.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/about/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/about/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/contact/ContactForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/contact/ContactForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/contact/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/contact/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/products/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/products/[slug]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/products/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/products/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/shop/[category]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/shop/[category]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/shop/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/shop/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/products.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/products.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/validation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/validation.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next-env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/next-env.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -260,7 +259,7 @@
       <workItem from="1781226253747" duration="179000" />
       <workItem from="1781226461324" duration="6994000" />
       <workItem from="1781260684571" duration="6878000" />
-      <workItem from="1781641164040" duration="3244000" />
+      <workItem from="1781641164040" duration="5038000" />
     </task>
     <task id="LOCAL-00001" summary="initialize project structure with Next.js, Tailwind CSS, and ESLint configuration">
       <option name="closed" value="true" />
@@ -350,7 +349,15 @@
       <option name="project" value="LOCAL" />
       <updated>1781266946702</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Implement cart functionality with AddToCartButton, CartProvider, and CartLink components; enhance checkout process with order creation and validation">
+      <option name="closed" value="true" />
+      <created>1781644817432</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1781644817432</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -379,7 +386,8 @@
     <MESSAGE value="Refactor user and seller ID types from integer to text for GitHub authentication compatibility" />
     <MESSAGE value="Update .gitignore to include .vercel and clean up users.sql by removing unused comments and trigger function" />
     <MESSAGE value="Add &quot;Home Decor&quot; category and refactor category and shop pages to use ProductCatalog component" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add &quot;Home Decor&quot; category and refactor category and shop pages to use ProductCatalog component" />
+    <MESSAGE value="Implement cart functionality with AddToCartButton, CartProvider, and CartLink components; enhance checkout process with order creation and validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement cart functionality with AddToCartButton, CartProvider, and CartLink components; enhance checkout process with order creation and validation" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

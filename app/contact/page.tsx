@@ -1,4 +1,17 @@
+import type { Metadata } from "next";
 import ContactForm from "./ContactForm";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description:
+    "Get in touch with Handcrafted Marketplace. We'd love to hear from you.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact Handcrafted Marketplace",
+    description: "Get in touch with Handcrafted Marketplace.",
+    url: "/contact",
+  },
+};
 
 export default function ContactPage() {
   return (

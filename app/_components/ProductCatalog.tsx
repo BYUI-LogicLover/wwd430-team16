@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 
@@ -71,16 +72,35 @@ export default function ProductCatalog({
     page * ITEMS_PER_PAGE,
   );
 
+  const itemListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: heading,
+    itemListElement: products.map((product, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: product.title,
+      url: `/products/${product.slug}`,
+    })),
+  };
+
   return (
     <div className="min-h-screen bg-[#f8f8f8] text-[#343434]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
+      />
       <div className="mx-auto max-w-6xl px-6 py-12">
         <h1 className="mb-8 text-4xl font-bold">{heading}</h1>
 
         <div className="mb-10 grid gap-4 md:grid-cols-3">
           <div>
-            <label className="mb-2 block font-medium">Category</label>
+            <label htmlFor="catalog-category" className="mb-2 block font-medium">
+              Category
+            </label>
 
             <select
+              id="catalog-category"
               value={category}
               onChange={(e) => {
                 setCategory(e.target.value);
@@ -97,11 +117,12 @@ export default function ProductCatalog({
           </div>
 
           <div>
-            <label className="mb-2 block font-medium">
+            <label htmlFor="catalog-max-price" className="mb-2 block font-medium">
               Maximum Price: Up to {formatPrice(maxPrice)}
             </label>
 
             <input
+              id="catalog-max-price"
               type="range"
               min="0"
               max={highestPrice}
@@ -115,9 +136,12 @@ export default function ProductCatalog({
           </div>
 
           <div>
-            <label className="mb-2 block font-medium">Sort By</label>
+            <label htmlFor="catalog-sort" className="mb-2 block font-medium">
+              Sort By
+            </label>
 
             <select
+              id="catalog-sort"
               value={sort}
               onChange={(e) => setSort(e.target.value)}
               className="w-full rounded-md border border-gray-300 bg-white p-2 text-[#343434]"
@@ -131,19 +155,24 @@ export default function ProductCatalog({
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
-          {paginatedProducts.map((product) => (
+          {paginatedProducts.map((product, index) => (
             <Link
               key={product.id}
               href={`/products/${product.slug}`}
               className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm transition hover:shadow-md"
             >
               {product.imageUrl ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src={product.imageUrl}
-                  alt={product.title}
-                  className="mb-4 h-40 w-full rounded object-cover"
-                />
+                <div className="relative mb-4 h-40 w-full overflow-hidden rounded">
+                  <Image
+                    src={product.imageUrl}
+                    alt={product.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 360px"
+                    className="object-cover"
+                    // Eager-load the first card (likely LCP); lazy-load the rest.
+                    preload={index === 0}
+                  />
+                </div>
               ) : (
                 <div className="mb-4 flex h-40 items-center justify-center rounded bg-gray-200 text-gray-600">
                   Product Image

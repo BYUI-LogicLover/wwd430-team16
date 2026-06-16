@@ -1,4 +1,5 @@
 import { randomBytes } from "crypto";
+import { cache } from "react";
 import { query } from "@/lib/db";
 import { slugify } from "@/lib/sellers";
 import { PRODUCT_CATEGORIES } from "@/lib/categories";
@@ -76,16 +77,20 @@ export async function getOwnedProduct(id: string, sellerId: string): Promise<Pro
 }
 
 /** Public product detail by slug, joined with the seller. */
-export async function getProductBySlug(slug: string): Promise<ProductWithSeller | null> {
-  const result = await query<ProductWithSeller>(
-    `select ${PRODUCT_WITH_SELLER_FIELDS}
-       from public.products p
-       join public.sellers s on s."userId" = p."sellerId"
-      where p.slug = $1`,
-    [slug],
-  );
-  return result.rows[0] ?? null;
-}
+// Wrapped in React's `cache` so generateMetadata and the page component for a
+// product route share a single database query per request.
+export const getProductBySlug = cache(
+  async (slug: string): Promise<ProductWithSeller | null> => {
+    const result = await query<ProductWithSeller>(
+      `select ${PRODUCT_WITH_SELLER_FIELDS}
+         from public.products p
+         join public.sellers s on s."userId" = p."sellerId"
+        where p.slug = $1`,
+      [slug],
+    );
+    return result.rows[0] ?? null;
+  },
+);
 
 /** All listings for a seller's public storefront. */
 export async function listProductsForSellerSlug(sellerSlug: string): Promise<Product[]> {

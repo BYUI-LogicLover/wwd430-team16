@@ -1,3 +1,18 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Handcrafted is a marketplace for one-of-a-kind goods made by independent artisans. Learn about our mission to connect buyers with makers.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About Handcrafted Marketplace",
+    description:
+      "A marketplace for one-of-a-kind goods made by independent artisans.",
+    url: "/about",
+  },
+};
+
 export default function AboutPage() {
   return (
     <div className="bg-[#f8f8f8] text-[#343434]">

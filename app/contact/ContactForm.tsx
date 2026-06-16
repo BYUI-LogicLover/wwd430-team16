@@ -12,7 +12,11 @@ export default function ContactForm() {
 
   return (
     <form action={formAction} className="mt-8 grid gap-4">
+      <label htmlFor="contact-name" className="sr-only">
+        Your name
+      </label>
       <input
+        id="contact-name"
         name="name"
         type="text"
         placeholder="Your name"
@@ -20,7 +24,11 @@ export default function ContactForm() {
         maxLength={LIMITS.name}
         className={inputClass}
       />
+      <label htmlFor="contact-email" className="sr-only">
+        Email
+      </label>
       <input
+        id="contact-email"
         name="email"
         type="email"
         placeholder="Email"
@@ -28,7 +36,11 @@ export default function ContactForm() {
         maxLength={LIMITS.email}
         className={inputClass}
       />
+      <label htmlFor="contact-message" className="sr-only">
+        Message
+      </label>
       <textarea
+        id="contact-message"
         name="message"
         rows={5}
         placeholder="Message"
