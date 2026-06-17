@@ -39,7 +39,7 @@ export default async function Home() {
               {categories.map((c) => (
                 <Link
                   key={c.slug}
-                  href={`/shop/${c.slug}`}
+                  href={`/products?category=${c.slug}`}
                   className="rounded-lg border border-black/10 bg-[#f8f8f8] p-6 transition hover:border-[#28582e]"
                 >
                   <span className="font-medium">{c.label}</span>

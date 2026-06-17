@@ -15,8 +15,20 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function ProductsPage() {
+type ProductsPageProps = {
+  searchParams?: Promise<{
+    category?: string;
+  }>;
+};
+
+export default async function ProductsPage(props: ProductsPageProps) {
+  const searchParams = props.searchParams ? await props.searchParams : {};
   const products = await listAllProducts();
 
-  return <ProductCatalog products={products} />;
+  return (
+    <ProductCatalog
+      products={products}
+      initialCategory={searchParams.category ?? "All"}
+    />
+  );
 }

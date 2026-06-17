@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { PRODUCT_CATEGORIES, categoryLabel } from "@/lib/categories";
 
 type Product = {
   id: string;
@@ -17,6 +18,7 @@ type Product = {
 type ProductCatalogProps = {
   products: Product[];
   heading?: string;
+  initialCategory?: string;
 };
 
 const ITEMS_PER_PAGE = 6;
@@ -31,13 +33,24 @@ function formatPrice(cents: number) {
 export default function ProductCatalog({
   products,
   heading = "Product Catalog",
+  initialCategory = "All",
 }: ProductCatalogProps) {
-  const categories = ["All", ...Array.from(new Set(products.map((p) => p.category)))];
+  const categories = ["All", ...PRODUCT_CATEGORIES.map((c) => c.slug)];
+
+  const [category, setCategory] = useState(initialCategory);
+
+  const productsForSelectedCategory =
+  category === "All"
+    ? products
+    : products.filter((product) => product.category === category);
 
   const highestPrice =
-    products.length > 0 ? Math.max(...products.map((product) => product.priceCents)) : 0;
+    productsForSelectedCategory.length > 0
+      ? Math.max(
+          ...productsForSelectedCategory.map((product) => product.priceCents),
+        )
+      : 0;
 
-  const [category, setCategory] = useState("All");
   const [maxPrice, setMaxPrice] = useState(highestPrice);
   const [sort, setSort] = useState("name-asc");
   const [page, setPage] = useState(1);
@@ -103,14 +116,35 @@ export default function ProductCatalog({
               id="catalog-category"
               value={category}
               onChange={(e) => {
-                setCategory(e.target.value);
+                const selectedCategory = e.target.value;
+
+                const productsInCategory =
+                  selectedCategory === "All"
+                    ? products
+                    : products.filter(
+                        (product) => product.category === selectedCategory,
+                      );
+
+                const newHighestPrice =
+                  productsInCategory.length > 0
+                    ? Math.max(
+                        ...productsInCategory.map(
+                          (product) => product.priceCents,
+                        ),
+                      )
+                    : 0;
+
+                setCategory(selectedCategory);
+                setMaxPrice(newHighestPrice);
                 setPage(1);
               }}
               className="w-full rounded-md border border-gray-300 bg-white p-2 text-[#343434]"
             >
               {categories.map((categoryOption) => (
                 <option key={categoryOption} value={categoryOption}>
-                  {categoryOption}
+                  {categoryOption === "All"
+                    ? "All"
+                    : categoryLabel(categoryOption)}
                 </option>
               ))}
             </select>
@@ -183,7 +217,9 @@ export default function ProductCatalog({
                 {product.title}
               </h2>
 
-              <p className="text-gray-600">{product.category}</p>
+              <p className="text-gray-600">
+                {categoryLabel(product.category)}
+              </p>
 
               <p className="mt-1 text-sm text-gray-500">
                 By {product.shopName}
